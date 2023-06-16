@@ -1,2 +1,5 @@
 # Tardi
 TardiWallet is an #opensource #bitcoin wallet.
+TardiWallet is a specialized cryptocurrency electronic hardware wallet that prioritizes security. Unlike software and common hardware wallets, it employs an air-gapped mechanism to keep private keys offline and isolated from online threats. By generating private keys offline and securely signing transactions, TardiWallet ensures the validity and tamper-proof nature of transactions. This comprehensive security approach shields cryptocurrency holders from risks like malware, phishing attacks, and hacking attempts.
+
+In terms of accessibility and collaboration, TardiWallet operates under the MIT open-source license. Its development involves incorporating open source technologies from around the world, fostering innovation and collaboration within the cryptocurrency community. The complete product is available for purchase without copyright restrictions, empowering users to safeguard their digital assets. Moreover, the open design and concept allow individuals to create similar hardware wallets, promoting accessibility, creativity, and the advancement of secure storage solutions for cryptocurrencies.
