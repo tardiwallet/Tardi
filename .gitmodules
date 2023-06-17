@@ -1,0 +1,12 @@
+[submodule "components/blockchain/seedtool-cli"]
+	path = components/blockchain/seedtool-cli
+	url = https://github.com/BlockchainCommons/seedtool-cli.git
+[submodule "components/lvgl"]
+	path = components/lvgl
+	url = https://github.com/lvgl/lvgl.git
+[submodule "components/lvgl_esp32_drivers"]
+	path = components/lvgl_esp32_drivers
+	url = https://github.com/lvgl/lvgl_esp32_drivers.git
+[submodule "components/esp32-camera"]
+	path = components/esp32-camera
+	url = https://github.com/espressif/esp32-camera.git

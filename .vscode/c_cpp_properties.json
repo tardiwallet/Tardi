@@ -1,0 +1,27 @@
+{
+    "configurations": [
+        {
+          "name": "ESP-IDF",
+          "cStandard": "c11",
+          "cppStandard": "c++17",
+          "intelliSenseMode": "windows-gcc-x86",
+          "includePath": [
+            "${config:idf.espIdfPath}/components/**",
+            "${config:idf.espIdfPathWin}/components/**",
+            "${workspaceFolder}/**"
+          ],
+          "browse": {
+            "path": [
+              "${config:idf.espIdfPath}/components",
+              "${config:idf.espIdfPathWin}/components",
+              "${workspaceFolder}"
+            ],
+            "limitSymbolsToIncludedHeaders": false
+          },
+          "compilerPath": "C:\\Users\\Saber\\.espressif\\tools\\xtensa-esp32-elf\\esp-2021r2-patch3-8.4.0\\xtensa-esp32-elf\\bin\\xtensa-esp32-elf-gcc.exe",
+          "defines": ["LV_LVGL_H_INCLUDE_SIMPLE", "LV_CONF_SKIP", "USE_STDONLY"]
+        }
+      ],    
+
+    "version": 4
+}
