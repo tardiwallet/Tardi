@@ -15,8 +15,8 @@ extern "C"
 #endif
 
 
-#include "DynamicQRCode.h"
-#include "json.hpp"
+// #include "DynamicQRCode.h"
+// #include "json.hpp"
 #include <string>
 #include <stdexcept>
 // #include <vector>
@@ -51,6 +51,7 @@ void testDynamicQRCode(void *args)
     vTaskDelete(NULL);
 }
 
+/*
 void testJson(void *args)
 {
     const char *TAG = "testJson";
@@ -145,6 +146,7 @@ void testCbor(void *args)
     ESP_LOGI(TAG, "test done!");
     vTaskDelete(NULL);
 }
+*/
 
 void test_seedtool_cli(void *args)
 {

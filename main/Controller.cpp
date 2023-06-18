@@ -13,7 +13,7 @@
 #include "format.hpp"
 #include <sstream>
 #include <stdexcept>
-#include "CaptureAP.h"
+// #include "CaptureAP.h"
 
 
 // #ifdef LV_LVGL_H_INCLUDE_SIMPLE

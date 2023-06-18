@@ -17,12 +17,12 @@ extern "C"
 }
 #endif
 
-#include "examples/examples.h"
+// #include "examples/examples.h"
 #include "Controller.h"
-#include "GpioKey.h"
-#include "Debouncer.h"
-#include "EncoderEmulator.h"
-#include "GUI.h"
+// #include "GpioKey.h"
+// #include "Debouncer.h"
+// #include "EncoderEmulator.h"
+// #include "GUI.h"
 
 // #include "test.h"
 // #include <string>
@@ -65,7 +65,7 @@ void set_log_level(esp_log_level_t level)
     // esp_log_level_set("GpioKey", level);
 }
 
-
+#include "incl_test.h"
 
 
 extern "C" void app_main(void)

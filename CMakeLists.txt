@@ -7,7 +7,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # set(CONFIG_COMPILER_CXX_RTTI )
 
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
-project(BitSigner)
+project(Tardi)
 
 
 idf_build_set_property(COMPILE_OPTIONS "-Wno-error" APPEND)
