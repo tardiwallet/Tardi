@@ -1,5 +1,5 @@
 set (bc_bip39_srcs
-    seedtool-cli/deps/bc-bip39/src/bip39.c
+    submodule-fixes/seedtool-cli/deps/bc-bip39/src/bip39.c
     seedtool-cli/deps/bc-bip39/src/prefix2.c
     seedtool-cli/deps/bc-bip39/src/prefix1.c
     seedtool-cli/deps/bc-bip39/src/suffix_array.c
@@ -19,10 +19,10 @@ set (bc_crypto_base_srcs
 set(bc_shamir_srcs
     seedtool-cli/deps/bc-shamir/src/hazmat.c
     seedtool-cli/deps/bc-shamir/src/interpolate.c
-    seedtool-cli/deps/bc-shamir/src/shamir.c
+    submodule-fixes/seedtool-cli/deps/bc-shamir/src/shamir.c
 )
 set(bc_sskr_srcs
-    seedtool-cli/deps/bc-sskr/src/encoding.c
+    submodule-fixes/seedtool-cli/deps/bc-sskr/src/encoding.c
     seedtool-cli/deps/bc-sskr/test/test.c
     seedtool-cli/deps/bc-sskr/test/test-utils.c
 )
@@ -39,30 +39,30 @@ set(bc_ur_srcs
     seedtool-cli/deps/bc-ur/src/ur-encoder.cpp
     seedtool-cli/deps/bc-ur/src/ur.cpp
     seedtool-cli/deps/bc-ur/src/utils.cpp
-    seedtool-cli/deps/bc-ur/src/xoshiro256.cpp
+    submodule-fixes/seedtool-cli/deps/bc-ur/src/xoshiro256.cpp
 )
 set(seedtool_srcs
+    submodule-fixes/seedtool-cli/src/argp.c
     seedtool-cli/src/format-base10.cpp
     seedtool-cli/src/format-base6.cpp
-    seedtool-cli/src/format-bip39.cpp
+    submodule-fixes/seedtool-cli/src/format-bip39.cpp
     seedtool-cli/src/format-bits.cpp
-    seedtool-cli/src/format-bytewords-minimal.cpp
-    seedtool-cli/src/format-bytewords-uri.cpp
-    seedtool-cli/src/format-bytewords.cpp
+    submodule-fixes/seedtool-cli/src/format-bytewords-minimal.cpp
+    submodule-fixes/seedtool-cli/src/format-bytewords-uri.cpp
+    submodule-fixes/seedtool-cli/src/format-bytewords.cpp
     seedtool-cli/src/format-cards.cpp
     seedtool-cli/src/format-dice.cpp
     seedtool-cli/src/format-hex.cpp
     seedtool-cli/src/format-ints.cpp
     seedtool-cli/src/format-random.cpp
-    seedtool-cli/src/format-sskr.cpp
+    submodule-fixes/seedtool-cli/src/format-sskr.cpp
     seedtool-cli/src/format.cpp
-    seedtool-cli/src/hkdf.c
-    seedtool-cli/src/params.cpp
-    seedtool-cli/src/random.cpp
-    seedtool-cli/src/randombytes.c
-    seedtool-cli/src/seedtool.cpp
-    seedtool-cli/src/utils.cpp
-    seedtool-cli/src/argp.c
+    submodule-fixes/seedtool-cli/src/hkdf.c
+    submodule-fixes/seedtool-cli/src/params.cpp
+    submodule-fixes/seedtool-cli/src/random.cpp
+    submodule-fixes/seedtool-cli/src/randombytes.c
+    # seedtool-cli/src/seedtool.cpp
+    submodule-fixes/seedtool-cli/src/utils.cpp
     # seedtool-cli/src/argp/argp-parse.c
     # seedtool-cli/src/argp.c
     # seedtool-cli/src/getopt1.c
@@ -79,15 +79,20 @@ set(srcs
 )
 # ${bc_bytewords_srcs}
 
-set(include_dirs    
+set(priv_include_dirs    
     seedtool-cli/deps/bc-crypto-base/src 
     seedtool-cli/deps/bc-crypto-base/test
-    seedtool-cli/deps/bc-ur/src
+    submodule-fixes/seedtool-cli/deps/bc-bip39/src
     seedtool-cli/deps/bc-bip39/src
-    seedtool-cli/deps/bc-sskr/src
     seedtool-cli/deps/bc-shamir/src
     # seedtool-cli/deps/argp-standalone/argp-standalone
-    seedtool-cli/src
+)
+
+set(include_dirs    
+seedtool-cli/deps/bc-sskr/src
+submodule-fixes/seedtool-cli/src
+seedtool-cli/src
+seedtool-cli/deps/bc-ur/src
 )
 # bc-bytewords/src
 
@@ -97,7 +102,7 @@ set(include_dirs
 # set(COMPONENT_SRCS ${srcs})
 
 
-idf_component_register(SRCS ${srcs} INCLUDE_DIRS ${include_dirs})
+idf_component_register(SRCS ${srcs} INCLUDE_DIRS ${include_dirs} PRIV_INCLUDE_DIRS ${priv_include_dirs})
 # REQUIRES arduino
 # target_compile_options(${COMPONENT_LIB} PRIVATE -Wall -Wextra -Werror)
 target_compile_features(${COMPONENT_LIB} PUBLIC cxx_std_17)
@@ -108,7 +113,7 @@ set_target_properties(${COMPONENT_LIB}
         CXX_EXTENSIONS NO
 )
 
-# idf_build_set_property(COMPILE_OPTIONS "-frtti" APPEND)
+# idf_build_set_property(COMPILE_OPTIONS "-B seedtool-cli/dep/" APPEND)
 # set_source_files_properties(seedtool-cli/src/formats-all.hpp
 #     PROPERTIES COMPILE_FLAGS
 #     -frtti
@@ -129,7 +134,7 @@ set_target_properties(${COMPONENT_LIB}
 # )
 
 add_definitions(
-    -DUSE_STDONLY=1 -DUSE_STD_STRING=1 -DUSE_ARDUINO_STRING=0 -DUSE_ARDUINO_STREAM=0 -DUSE_MBED_STREAM=0 -DARDUINO 
+    -DUSE_STDONLY=1 -DUSE_STD_STRING=1 -DUSE_ARDUINO_STRING=0 -DUSE_ARDUINO_STREAM=0 -DUSE_MBED_STREAM=0
     ) 
     # -DARDUINO_SKIP_IDF_VERSION_CHECK 
 
